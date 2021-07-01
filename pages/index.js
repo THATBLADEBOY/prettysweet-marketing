@@ -1,32 +1,16 @@
-import Fork from '../components/Fork'
-import Todo from '../components/Todo'
+import NavBar from "../components/NavBar";
+import Header from "../components/Header";
+import { ServicesSection } from "../components/ServicesSection";
+import { Footer } from "../components/Footer";
+import { BreakSection } from "../components/BreakSection";
 
-export default function Index({ stars }) {
+export default function Index() {
 	return (
 		<main>
-			<Fork stars={stars} />
-			<Todo />
+			<Header />
+			<BreakSection />
+			<ServicesSection />
+			<Footer />
 		</main>
-	)
-}
-
-export async function getServerSideProps() {
-	try {
-		const res = await fetch(
-			'https://api.github.com/repos/ooade/NextSimpleStarter'
-		)
-		const json = await res.json()
-
-		return {
-			props: {
-				stars: json.stargazers_count,
-			},
-		}
-	} catch (error) {
-		return {
-			props: {
-				stars: 0,
-			},
-		}
-	}
+	);
 }
