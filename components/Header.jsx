@@ -4,40 +4,54 @@ import Image from "next/image";
 import { Typography, Button, Container, Grid } from "@material-ui/core";
 import { motion } from "framer-motion";
 import { NavBar } from "./NavBar";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
+import { ScrollingMessageBar } from "./ScrollingMessageBar";
 
 const useStyles = makeStyles(() => ({
 	header: {
-		fontWeight: 600,
+		fontWeight: 900,
 		color: "black",
-		marginTop: 24,
+		marginTop: (isDesktop) => (isDesktop ? 24 : 0),
+		textAlign: (isDesktop) => (isDesktop ? null : "center"),
 	},
 	caption: {
 		display: "block",
+		textAlign: (isDesktop) => (isDesktop ? null : "center"),
 	},
 	button: {
 		marginTop: 16,
+		width: "100%",
+		backgroundColor: "#00E5B3",
 	},
 	headerContainer: {
-		height: "90vh",
-		marginLeft: 24,
-		marginRight: 24,
+		minHeight: "90vh",
 	},
 }));
 
-const Header = () => {
-	const classes = useStyles();
+export const Header = () => {
+	const theme = useTheme();
+	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+	const classes = useStyles(isDesktop);
+
 	return (
 		<>
 			<NavBar />
-			<Container maxWidth="lg">
+			<ScrollingMessageBar />
+			<Container maxWidth="xl">
 				<Grid
 					className={classes.headerContainer}
 					container
 					alignItems="center"
-					spacing={3}
+					direction={isDesktop ? null : "column-reverse"}
+					justify="center"
+					spacing={2}
 				>
-					<Grid item xs={12} s={6}>
-						<Typography variant="h1" className={classes.header}>
+					<Grid item xs={12} md={6}>
+						<Typography
+							variant={isDesktop ? "h1" : "h3"}
+							className={classes.header}
+						>
 							we bring your ideas to life.
 						</Typography>
 						<Typography className={classes.caption} variant="caption">
@@ -48,19 +62,21 @@ const Header = () => {
 							CONTACT US
 						</Button>
 					</Grid>
-					<Grid item xs={12} s={6}>
+					<Grid item xs={12} md={6}>
 						<motion.div
 							animate={{
 								y: [10, -10],
 							}}
 							transition={{ repeat: Infinity, repeatType: "reverse" }}
 						>
-							<Image
-								src="/../public/static/img/cyborg-120.png"
-								alt="Picture of the author"
-								width="800"
-								height="800"
-							/>
+							<div>
+								<Image
+									src="/../public/static/img/cyborg-120.png"
+									alt="robot head creating a lightbulb to represent bringing ideas to life"
+									width={isDesktop ? "800" : "350"}
+									height={isDesktop ? "800" : "350"}
+								/>
+							</div>
 						</motion.div>
 					</Grid>
 				</Grid>
@@ -68,5 +84,3 @@ const Header = () => {
 		</>
 	);
 };
-
-export default Header;

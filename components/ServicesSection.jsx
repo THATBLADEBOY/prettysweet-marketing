@@ -8,15 +8,22 @@ const useStyles = makeStyles(() => ({
 		fontWeight: 600,
 		marginBottom: 8,
 	},
+	item: {
+		border: "3px solid black",
+		margin: 8,
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
+	},
 }));
 
 export const ServicesSection = () => {
 	const classes = useStyles();
 	return (
 		<>
-			<Container maxWidth="md">
-				<Grid container spacing={3}>
-					<Grid item xs={4}>
+			<Container>
+				<Grid justify="center" container spacing={5}>
+					<Grid className={classes.item} item xs={12} md={3}>
 						<Image
 							src="/../public/static/img/cyborg-106.png"
 							width="200"
@@ -30,7 +37,7 @@ export const ServicesSection = () => {
 							good at building them.
 						</Typography>
 					</Grid>
-					<Grid item xs={4}>
+					<Grid className={classes.item} item xs={12} md={3}>
 						<Image
 							src="/../public/static/img/cyborg-116.png"
 							width="200"
@@ -45,12 +52,14 @@ export const ServicesSection = () => {
 							imagination.
 						</Typography>
 					</Grid>
-					<Grid item xs={4}>
-						<Image
-							src="/../public/static/img/cyborg-78.png"
-							width="200"
-							height="200"
-						/>
+					<Grid className={classes.item} item xs={12} md={3}>
+						<div>
+							<Image
+								src="/../public/static/img/cyborg-78.png"
+								width="200"
+								height="200"
+							/>
+						</div>
 						<Typography className={classes.header} variant="h5">
 							{"{ branding }"}
 						</Typography>
