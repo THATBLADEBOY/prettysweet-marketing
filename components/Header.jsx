@@ -4,8 +4,6 @@ import Image from "next/image";
 import { Typography, Button, Container, Grid } from "@material-ui/core";
 import { motion } from "framer-motion";
 import { NavBar } from "./NavBar";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
 import { ScrollingMessageBar } from "./ScrollingMessageBar";
 
 const useStyles = makeStyles(() => ({
@@ -23,15 +21,29 @@ const useStyles = makeStyles(() => ({
 		marginTop: 16,
 		width: "100%",
 		backgroundColor: "#00E5B3",
+		borderRadius: 0,
+		textTransform: "lowercase",
+		fontWeight: 600,
+		fontSize: 18,
+		border: "3px solid black",
+		height: 48,
+	},
+	learnMore: {
+		marginTop: 16,
+		width: "100%",
+		borderRadius: 0,
+		textTransform: "lowercase",
+		fontWeight: 600,
+		fontSize: 18,
+		border: "3px solid black",
+		height: 48,
 	},
 	headerContainer: {
 		minHeight: "90vh",
 	},
 }));
 
-export const Header = () => {
-	const theme = useTheme();
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+export const Header = ({ isDesktop }) => {
 	const classes = useStyles(isDesktop);
 
 	return (
@@ -58,9 +70,18 @@ export const Header = () => {
 							<b>{"{ pretty sweet }"}</b> is a scrappy and experienced design
 							and development team obsessed with your success
 						</Typography>
-						<Button className={classes.button} variant="outlined">
-							CONTACT US
-						</Button>
+						<Grid item container justify="space-evenly">
+							<Grid item xs={5}>
+								<Button className={classes.button} variant="outlined">
+									CONTACT US
+								</Button>
+							</Grid>
+							<Grid item xs={5}>
+								<Button className={classes.learnMore} variant="outlined">
+									learn more
+								</Button>
+							</Grid>
+						</Grid>
 					</Grid>
 					<Grid item xs={12} md={6}>
 						<motion.div

@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const useStyles = makeStyles(() => ({
 	breakContainer: {
-		paddingTop: 24,
-		paddingBottom: 24,
+		paddingTop: 36,
+		paddingBottom: 36,
 		marginTop: 32,
 		marginBottom: 32,
 		backgroundColor: "black",
@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
 	},
 }));
 
-export const BreakSection = () => {
+export const BreakSection = ({ isDesktop }) => {
 	const classes = useStyles();
 	return (
 		<Grid container justify="center" className={classes.breakContainer}>
