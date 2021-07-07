@@ -31,6 +31,7 @@ const useStyles = makeStyles(() => ({
 	learnMore: {
 		marginTop: 16,
 		width: "100%",
+		backgroundColor: "white",
 		borderRadius: 0,
 		textTransform: "lowercase",
 		fontWeight: 600,
@@ -66,11 +67,16 @@ export const Header = ({ isDesktop }) => {
 						>
 							we bring your ideas to life.
 						</Typography>
-						<Typography className={classes.caption} variant="caption">
+						<Typography className={classes.caption} variant="body1">
 							<b>{"{ pretty sweet }"}</b> is a scrappy and experienced design
 							and development team obsessed with your success
 						</Typography>
-						<Grid item container justify="space-evenly">
+						<Grid
+							item
+							container
+							justify={isDesktop ? "flex-start" : "space-evenly"}
+							spacing={3}
+						>
 							<Grid item xs={5}>
 								<Button className={classes.button} variant="outlined">
 									CONTACT US
@@ -92,7 +98,7 @@ export const Header = ({ isDesktop }) => {
 						>
 							<div>
 								<Image
-									src="/../public/static/img/cyborg-120.png"
+									src="/static/img/cyborg-120.png"
 									alt="robot head creating a lightbulb to represent bringing ideas to life"
 									width={isDesktop ? "800" : "350"}
 									height={isDesktop ? "800" : "350"}

@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
 	container: {
 		borderTop: "3px solid black",
 		marginTop: 48,
+		backgroundColor: "white",
 	},
 }));
 
@@ -17,22 +18,20 @@ export const Footer = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.container}>
-			<Container maxWidth="md">
-				<Grid container spacing={3}>
+			<Container maxWidth="xl">
+				<Grid container alignItems="center" justify="space-between" spacing={3}>
 					<Grid item xs={4}>
 						<Typography className={classes.header} variant="h4">
 							{"{ ps }"}
 						</Typography>
+					</Grid>
+					<Grid item xs={4}>
 						<Typography variant="caption">
-							all rights reserved pretty sweet 2021
+							built with 🤟 by <b>{"{ ps }"}</b>
 						</Typography>
 					</Grid>
 					<Grid item xs={4}>
 						<Typography variant="caption">yo@prettysweet.io</Typography>
-						<Typography variant="caption">Nashville, TN</Typography>
-					</Grid>
-					<Grid item xs={4}>
-						<Typography variant="caption"></Typography>
 					</Grid>
 				</Grid>
 			</Container>

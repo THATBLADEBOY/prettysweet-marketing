@@ -29,13 +29,7 @@ export const BreakSection = ({ isDesktop }) => {
 				<Typography className={classes.text} variant="h2">
 					we like products with personality.
 				</Typography>
-				<Typography className={classes.subText} variant="body1">
-					code and pixels are just part of the story. we listen to understand
-					your story, your challenges, and your vision. we want to be part of
-					your triumph story and create something that represents you, as we
-					navigate the treacherous waters between ‘compelling idea’ and
-					‘exceptional product’
-				</Typography>
+				<Typography className={classes.subText} variant="body1"></Typography>
 			</Grid>
 		</Grid>
 	);
